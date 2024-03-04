@@ -1,6 +1,6 @@
 const Mock = require("mockjs");
 const getQuestionList = require("./data/getQuestionList");
-// const getComponentList = require('./data/getComponentList')
+const getComponentList = require("./data/getComponentList");
 
 const Random = Mock.Random;
 
@@ -20,7 +20,7 @@ module.exports = [
           css: "",
           isDeleted: false,
           isPublished: true,
-          // componentList: getComponentList()
+          componentList: getComponentList(),
         },
 
         // errno: 1002,
@@ -72,26 +72,26 @@ module.exports = [
     },
   },
   {
-      // 复制问卷
-      url: '/api/question/duplicate/:id',
-      method: 'post',
-      response() {
-          return {
-              errno: 0,
-              data: {
-                  id: Random.id()
-              }
-          }
-      }
+    // 复制问卷
+    url: "/api/question/duplicate/:id",
+    method: "post",
+    response() {
+      return {
+        errno: 0,
+        data: {
+          id: Random.id(),
+        },
+      };
+    },
   },
   {
-      // 批量彻底删除
-      url: '/api/question',
-      method: 'delete',
-      response() {
-          return {
-              errno: 0
-          }
-      }
-  }
+    // 批量彻底删除
+    url: "/api/question",
+    method: "delete",
+    response() {
+      return {
+        errno: 0,
+      };
+    },
+  },
 ];
