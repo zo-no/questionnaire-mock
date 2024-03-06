@@ -18,7 +18,7 @@ async function getRes(fn, ctx) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(fn(ctx));
-    }, 1000);
+    }, 100);
   });
 }
 
@@ -27,7 +27,7 @@ async function getRes(fn, ctx) {
  * */
 mockList.forEach((item) => {
   const { method, url, response } = item;
-  router[method](url, async ctx => {
+  router[method](url, async (ctx) => {
     ctx.body = await getRes(response, ctx);
   });
 });
